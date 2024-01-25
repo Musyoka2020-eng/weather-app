@@ -1,4 +1,3 @@
-
 # Weather App
   ---
 ## Description
@@ -28,23 +27,10 @@ To run the Weather App locally, follow these steps:
 ## Dependencies
 
 - [Montserrat](https://fonts.google.com/specimen/Montserrat) font is used for the application.
+  ```html
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+  ```
 
 ## API Key
 
 The app requires an API key from OpenWeatherMap to fetch weather data. Obtain an API key from [OpenWeatherMap](https://openweathermap.org/api) and replace the placeholder in `script.js` with your actual API key.
-
-```javascript
-const apiKey = "YOUR_API_KEY";
-```
-
-## Contributing
-
-If you would like to contribute to the project, please fork the repository and submit a pull request. Your contributions are highly appreciated!
-
-## License
-
-This project is licensed under the [MIT License](LICENSE).
-
-## Acknowledgments
-
-- Weather data provided by [OpenWeatherMap](https://openweathermap.org/).

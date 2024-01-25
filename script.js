@@ -10,7 +10,11 @@ formEl.addEventListener("submit", (e) => {
     e.preventDefault();
     const cityValue = cityInputEl.value;
 
-    getWeatherData(cityValue, apikey);
+    if (cityValue.trim() === "") {
+        displayErrorMessage("Please enter a city");
+    } else {
+        getWeatherData(cityValue, apikey);
+    }
 });
 
 async function getWeatherData(cityValue, apikey) {
@@ -59,12 +63,16 @@ async function getWeatherData(cityValue, apikey) {
 
     } catch (error) {
         console.error('An error occurred:', error);
-        weatherDataEl.querySelector('.icon').innerHTML = "";
-        weatherDataEl.querySelector('.description').textContent = "An error occurred: " + error.message;
-        weatherDataEl.querySelector('#temperature').textContent = "";
-        weatherDataEl.querySelector('.details').innerHTML = "";
-        weatherDataEl.querySelector('.country').textContent = "";
-        weatherDataEl.querySelector('.city').textContent = "";
-        weatherDataEl.querySelector('.date').textContent = "";
+        displayErrorMessage("An error occurred: " + error.message);
     }
+}
+
+function displayErrorMessage(message) {
+    weatherDataEl.querySelector('.icon').innerHTML = "";
+    weatherDataEl.querySelector('.description').textContent = message;
+    weatherDataEl.querySelector('#temperature').textContent = "";
+    weatherDataEl.querySelector('.details').innerHTML = "";
+    weatherDataEl.querySelector('.country').textContent = "";
+    weatherDataEl.querySelector('.city').textContent = "";
+    weatherDataEl.querySelector('.date').textContent = "";
 }
